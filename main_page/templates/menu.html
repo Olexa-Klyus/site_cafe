@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>main menu</h2>
+{% for category in categories %}
+    {% if forloop.first %}
+        <p>First iteration</p>
+    {% endif %}
+    <h3>{{ category.title }}</h3>
+    <div>
+    {% for dish in category %}
+        <div>
+            <h5>{{ dish.title }}</h5>
+            <p>{{ dish.price }}</p>
+            <img src="{{ dish.photo.url }}" alt="">
+        </div>
+
+    {% endfor %}
+    <div>
+{% endfor %}
+</body>
+</html>
