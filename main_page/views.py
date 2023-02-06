@@ -1,10 +1,12 @@
 from django.shortcuts import render
 # from django.http import HttpResponse
-from .models import Category
+from .models import Category, Dish
 
 
 def main(request):
-    categories = Category.objects.all()
+    categories = Category.objects.filter(is_visible=True)
+    dishes = Dish.objects.filter(is_visible=True, is_special=False)
+
     # повертаємо за допомогою функції рендер через HTML файл (створили файл-шаблон menu.html в папці templates)
     # в context записуємо словник,до якого зможемо звертатися в шаблоні
     # return render(request, '', context={
@@ -12,6 +14,7 @@ def main(request):
     # })
     return render(request, 'main_page.html', context={
         'categories': categories,
+        'dishes': dishes,
     })
 
     # dishes = Dish.objects.all()
@@ -21,4 +24,3 @@ def main(request):
     # return HttpResponse(
     #     res1 + '    ///     ' + res2
     # )
-
