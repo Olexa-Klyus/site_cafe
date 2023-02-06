@@ -10,7 +10,7 @@ def main(request):
     # return render(request, '', context={
     #     'categories': categories,
     # })
-    return render(request, 'index.html', context={
+    return render(request, 'main_page.html', context={
         'categories': categories,
     })
 
