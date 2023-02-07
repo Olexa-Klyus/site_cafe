@@ -6,7 +6,7 @@ from .models import Category, Dish
 def main(request):
     categories = Category.objects.filter(is_visible=True)
     dishes = Dish.objects.filter(is_visible=True, is_special=False)
-
+    special_dishes = Dish.objects.filter(is_visible=True, is_special=True)
     # повертаємо за допомогою функції рендер через HTML файл (створили файл-шаблон menu.html в папці templates)
     # в context записуємо словник,до якого зможемо звертатися в шаблоні
     # return render(request, '', context={
@@ -15,6 +15,7 @@ def main(request):
     return render(request, 'main_page.html', context={
         'categories': categories,
         'dishes': dishes,
+        'special_dishes': special_dishes,
     })
 
     # dishes = Dish.objects.all()
