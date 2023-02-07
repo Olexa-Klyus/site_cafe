@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Dish
+from .models import Category, Dish, Gallery
 
 
 # варіант адмінки на швидкоруч
@@ -39,3 +39,7 @@ class DishAllAdmin(admin.ModelAdmin):
 
     # якщо таблиця довга, розбити її на сторінки
     # list_per_page = 2
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    model = Gallery

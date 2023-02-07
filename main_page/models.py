@@ -54,3 +54,7 @@ class Dish(models.Model):
 
     class Meta:
         ordering = ('category', 'position')
+
+
+class Gallery(models.Model):
+    photo=models.ImageField(upload_to='gallery',blank=False)
