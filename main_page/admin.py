@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Dish, Gallery
+from .models import Category, Dish, Events, Gallery
 
 
 # варіант адмінки на швидкоруч
@@ -40,6 +40,18 @@ class DishAllAdmin(admin.ModelAdmin):
     # якщо таблиця довга, розбити її на сторінки
     # list_per_page = 2
 
+
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     model = Gallery
+
+    list_display = ['photo', 'is_visible', 'date_add', 'desc']
+    list_editable = ['is_visible']
+    list_filter = ['date_add']
+
+
+@admin.register(Events)
+class EventsAdmin(admin.ModelAdmin):
+    model = Events
+    list_display = ['title', 'is_visible', 'price', 'desc_top']
+    list_editable = ['is_visible', 'price', 'desc_top']

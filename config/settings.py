@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'site_cafe_db',
+        'NAME': 'site_cafe_db2',
         'USER': 'olexa',
         'PASSWORD': 'leon',
         'HOST': 'localhost',
