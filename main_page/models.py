@@ -65,7 +65,11 @@ class Gallery(models.Model):
 class Events(models.Model):
     title = models.CharField(max_length=50, unique=True)
     position = models.SmallIntegerField()
-    desc = models.TextField(max_length=500, blank=True)
+    desc_top = models.TextField(max_length=200, blank=True)
+    desc_li_1 = models.TextField(max_length=200, blank=True)
+    desc_li_2 = models.TextField(max_length=200, blank=True)
+    desc_li_3 = models.TextField(max_length=200, blank=True)
+    desc_bottom = models.TextField(max_length=200, blank=True)
     is_visible = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     photo = models.ImageField(upload_to='events', blank=True)
