@@ -55,6 +55,7 @@ class Dish(models.Model):
     class Meta:
         ordering = ('category', 'position')
 
+
 #
 class Gallery(models.Model):
     photo = models.ImageField(upload_to='gallery', blank=False)
@@ -76,3 +77,27 @@ class Events(models.Model):
 
     def str(self):
         return f'{self.title}'
+
+
+class Chefs(models.Model):
+    name = models.CharField(max_length=30)
+    specialty = models.CharField(max_length=30)
+    photo = models.ImageField(upload_to='chefs', blank=True)
+    is_visible = models.BooleanField(default=True)
+    twitter = models.CharField(max_length=30, blank=True)
+    facebook = models.CharField(max_length=30, blank=True)
+    instagram = models.CharField(max_length=30, blank=True)
+    linkedin = models.CharField(max_length=30, blank=True)
+
+
+class About(models.Model):
+    video = models.CharField(max_length=100, blank=True)
+    title_1 = models.CharField(max_length=50, unique=True)
+    title_2 = models.CharField(max_length=50, unique=True)
+    desc_top_1 = models.TextField(max_length=200, blank=True)
+    desc_top_2 = models.TextField(max_length=200, blank=True)
+    desc_li_1 = models.CharField(max_length=100, blank=True)
+    desc_li_2 = models.CharField(max_length=100, blank=True)
+    desc_li_3 = models.CharField(max_length=100, blank=True)
+    desc_bottom = models.TextField(max_length=200, blank=True)
+

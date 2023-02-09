@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import random
 # from django.http import HttpResponse
-from .models import Category, Dish, Events, Gallery
+from .models import Category, Dish, Events, Gallery, Chefs, About
 
 
 def main(request):
@@ -16,6 +16,8 @@ def main(request):
     # photos = list(Gallery.objects.all().order_by('?')[:8])
 
     events = Events.objects.filter(is_visible=True)
+    chefs = Chefs.objects.filter(is_visible=True)
+    about = About.objects.first()
 
     # повертаємо за допомогою функції рендер через HTML файл (створили файл-шаблон menu.html в папці templates)
     # в context записуємо словник,до якого зможемо звертатися в шаблоні
@@ -27,7 +29,9 @@ def main(request):
         'dishes': dishes,
         'special_dishes': special_dishes,
         'gallery': gallery,
-        'events': events
+        'events': events,
+        'chefs': chefs,
+        'about': about
     })
 
     # dishes = Dish.objects.all()

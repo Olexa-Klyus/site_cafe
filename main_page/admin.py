@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Dish, Events, Gallery
+from .models import Category, Dish, Events, Gallery, Chefs, About
 
 
 # варіант адмінки на швидкоруч
@@ -55,3 +55,15 @@ class EventsAdmin(admin.ModelAdmin):
     model = Events
     list_display = ['title', 'is_visible', 'price', 'desc_top']
     list_editable = ['is_visible', 'price', 'desc_top']
+
+
+@admin.register(Chefs)
+class ChefsAdmin(admin.ModelAdmin):
+    model = Chefs
+    list_display = ['name', 'is_visible', 'specialty']
+    list_editable = ['is_visible', 'specialty']
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    model = About
