@@ -8,7 +8,12 @@ def main(request):
     categories = Category.objects.filter(is_visible=True)
     dishes = Dish.objects.filter(is_visible=True, is_special=False)
     special_dishes = Dish.objects.filter(is_visible=True, is_special=True)
-    photos = list(Gallery.objects.all().order_by('?')[:8])
+
+    photos = list(Gallery.objects.all())
+    random.shuffle(photos)
+    photos = photos[:8]
+    # або можна
+    # photos = list(Gallery.objects.all().order_by('?')[:8])
 
     # повертаємо за допомогою функції рендер через HTML файл (створили файл-шаблон menu.html в папці templates)
     # в context записуємо словник,до якого зможемо звертатися в шаблоні

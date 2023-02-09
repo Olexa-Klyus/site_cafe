@@ -22,7 +22,6 @@ class Category(models.Model):
             yield item
 
 
-
 class Dish(models.Model):
     # можна формувати за допогою модуля uuid нове коректне унікальне імя файла,
     # зберігаючи поточне розширення файлу
@@ -57,4 +56,19 @@ class Dish(models.Model):
 
 
 class Gallery(models.Model):
-    photo=models.ImageField(upload_to='gallery',blank=False)
+    photo = models.ImageField(upload_to='gallery', blank=False)
+    desc = models.TextField(max_length=100, blank=True)
+    is_visible = models.BooleanField(default=True)
+    date_add = models.DateField(default='%d-%m-%y')
+
+
+class Events(models.Model):
+    title = models.CharField(max_length=50, unique=True)
+    position = models.SmallIntegerField()
+    desc = models.TextField(max_length=500, blank=True)
+    is_visible = models.BooleanField(default=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    photo = models.ImageField(upload_to='events', blank=True)
+
+    def str(self):
+        return f'{self.title}'
