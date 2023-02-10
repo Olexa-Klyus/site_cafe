@@ -8,6 +8,9 @@
     </div>
 
     <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+        {{ form_reserve.as_p }}
+    </form>
+    <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
       <div class="row">
         <div class="col-lg-4 col-md-6 form-group">
           <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">

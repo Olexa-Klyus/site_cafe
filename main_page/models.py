@@ -1,6 +1,7 @@
-import datetime
-import os.path
-import uuid
+# import datetime
+# import os.path
+# import uuid
+from django.core.validators import RegexValidator
 
 from django.db import models
 
@@ -101,3 +102,23 @@ class About(models.Model):
     desc_li_3 = models.CharField(max_length=100, blank=True)
     desc_bottom = models.TextField(max_length=200, blank=True)
 
+
+class Reservation(models.Model):
+    phone_validator = RegexValidator(regex=r'', message='')
+    name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20, validators=[phone_validator])
+    persons = models.SmallIntegerField()
+    message = models.TextField(max_length=250, blank=True)
+
+    date = models.DateField(auto_now_add=True)
+    date_processing = models.DateField(auto_now=True)
+    is_processed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-date',)
+
+
+class Whu_Us(models.Model):
+    number = models.CharField(max_length=3)
+    title = models.CharField(max_length=50)
+    desc = models.CharField(max_length=250)

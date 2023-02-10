@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Dish, Events, Gallery, Chefs, About
+from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us
 
 
 # варіант адмінки на швидкоруч
@@ -67,3 +67,8 @@ class ChefsAdmin(admin.ModelAdmin):
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     model = About
+
+
+@admin.register(Whu_Us)
+class Whu_UsAdmin(admin.ModelAdmin):
+    model = Whu_Us

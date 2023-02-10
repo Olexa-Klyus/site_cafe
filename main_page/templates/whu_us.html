@@ -1,0 +1,36 @@
+<!-- ======= Whu Us Section ======= -->
+<section id="why-us" class="why-us">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Why choose <span>Our Restaurant</span></h2>
+            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
+                vitae autem.</p>
+        </div>
+
+        <div class="row">
+            {% for item in whu_us %}
+                {% if forloop.first %}
+
+                    <div class="col-lg-4">
+                        <div class="box">
+                            <span>{{ item.number }}</span>
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="box">
+                            <span>{{ item.number }}</span>
+                            <h4>{{ item.title }}</h4>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section><!-- End Whu Us Section -->
