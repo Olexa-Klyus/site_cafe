@@ -1,8 +1,11 @@
 from django.contrib import admin
 from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us
+from .models import Reservation
 
 
 # варіант адмінки на швидкоруч
+# admin.site.register(Reservation)
+
 # admin.site.register(Category)
 # admin.site.register(Dish)
 
@@ -72,3 +75,10 @@ class AboutAdmin(admin.ModelAdmin):
 @admin.register(Whu_Us)
 class Whu_UsAdmin(admin.ModelAdmin):
     model = Whu_Us
+
+
+@admin.register(Reservation)
+class ReserveAdmin(admin.ModelAdmin):
+    model = Reservation
+    list_display = ['name', 'phone', 'is_processed']
+    list_editable = ['is_processed']
