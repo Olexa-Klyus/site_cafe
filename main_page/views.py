@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us
 from .forms import ReservationForm
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/login/')
 def main(request):
     if request.method == 'POST':
         form_reserve = ReservationForm(request.POST)
