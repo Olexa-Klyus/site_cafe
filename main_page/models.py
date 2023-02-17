@@ -71,7 +71,7 @@ class Events(models.Model):
     desc_li_1 = models.CharField(max_length=100, blank=True)
     desc_li_2 = models.CharField(max_length=100, blank=True)
     desc_li_3 = models.CharField(max_length=100, blank=True)
-    desc_bottom = models.TextField(max_length=500, blank=True)
+    desc_bottom1 = models.TextField(max_length=500, blank=True)
     is_visible = models.BooleanField(default=True)
     price = models.DecimalField(max_digits=8, decimal_places=0)
     photo = models.ImageField(upload_to='events', blank=True)

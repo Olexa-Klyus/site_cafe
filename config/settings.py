@@ -36,8 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+
     'main_page.apps.MainPageConfig',
     'account.apps.AccountConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'site_cafe_db2',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'site_cafe_db2',
+
+        # 'STORAGE_ENGINE': 'INNODB',
+        # 'OPTIONS': {'charset': 'utf8mb4'},
+        # 'TEST_CHARSET': 'utf8mb4',
+
         'USER': 'olexa',
         'PASSWORD': 'leon',
         'HOST': 'localhost',

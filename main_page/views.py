@@ -1,12 +1,16 @@
-from django.shortcuts import render, redirect
 # from django.http import HttpResponse
-from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us
+from django.shortcuts import render, redirect
+from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us, Reservation
 from .forms import ReservationForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
-@login_required(login_url='/login/')
+def is_manager(user):
+    return user.groups.filter(name='manager').exists()
+
+
 def main(request):
+
     if request.method == 'POST':
         form_reserve = ReservationForm(request.POST)
         if form_reserve.is_valid():
@@ -39,8 +43,22 @@ def main(request):
                       'chefs': chefs,
                       'about': about,
                       'whu_us': whu_us,
-                      'form_reserve': form_reserve
+                      'form_reserve': form_reserve,
                   })
+
+
+@login_required(login_url='/login/')
+@user_passes_test(is_manager)
+def list_reservation(request):
+    messages = Reservation.objects.filter(is_processed=False)
+    return render(request, 'reservations.html', context={'messages': messages})
+
+
+@login_required(login_url='/login/')
+@user_passes_test(is_manager)
+def update_reservation(request, pk):
+    Reservation.objects.filter(pk=pk).update(is_processed=True)
+    return redirect('main_page:list_reservation')
 
     # або як спрощений варіант - повертаємо все як респонс
     # res1 = f"Categories - {'; '.join(map(str, categories))}"

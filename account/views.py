@@ -34,7 +34,7 @@ def login_view(request):
 
         next_post = request.POST.get('next')
         return redirect(next_get or next_post or '/')
-    return render(request, 'login.html', context={'form': form})
+    return render(request, 'log_in.html', context={'form': form})
 
 
 def logout_view(request):
