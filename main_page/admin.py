@@ -28,7 +28,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_editable = ['position', 'is_visible']
 
 
-# можна додати в адмінку таблицю dish ще раз як просту таблицю, а не підпорядковану
+# можна додати в адмінку таблицю dishes.json ще раз як просту таблицю, а не підпорядковану
 
 @admin.register(Dish)
 class DishAllAdmin(admin.ModelAdmin):

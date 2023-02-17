@@ -83,10 +83,6 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.mysql',
         # 'NAME': 'site_cafe_db2',
 
-        # 'STORAGE_ENGINE': 'INNODB',
-        # 'OPTIONS': {'charset': 'utf8mb4'},
-        # 'TEST_CHARSET': 'utf8mb4',
-
         'USER': 'olexa',
         'PASSWORD': 'leon',
         'HOST': 'localhost',
