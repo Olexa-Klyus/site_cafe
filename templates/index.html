@@ -88,7 +88,7 @@
                             <li><a href="{% url 'users:login' %}">Вхід</a></li>
                             <li><a href="{% url 'users:registration' %}">Реєстрація</a></li>
                         {% else %}
-                            <li><a href="{% url 'logout_view' %}">Вихід</a></li>
+                            <li><a href="{% url 'users:logout' %}">Вийти</a></li>
                         {% endif %}
                     </ul>
                 </li>

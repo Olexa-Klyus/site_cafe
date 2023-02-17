@@ -18,16 +18,16 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
-from account.views import registration_view, login_view, logout_view
+# from account.views import registration_view, login_view, logout_view
 
 urlpatterns = [
     path('', include('main_page.urls')),
     path('users/', include('users.urls', namespace='users')),
 
     path('admin/', admin.site.urls),
-    path('registration/', registration_view, name='registration_view'),
-    path('login/', login_view, name='login_view'),
-    path('logout/', logout_view, name='logout_view'),
+    # path('registration/', registration_view, name='registration_view'),
+    # path('login/', login_view, name='login_view'),
+    # path('logout/', logout_view, name='logout_view'),
 ]
 
 # # прописуємо ці налаштування щоб на локальному сервері в режимі розробника бачити зображення з медіа

@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'rest_framework',
 
     'main_page.apps.MainPageConfig',
-    'account.apps.AccountConfig',
     'users.apps.UsersConfig',
 ]
 
@@ -140,3 +139,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # шлях до папки на сервері буде в BASE_DIR, до шляху додаємо папку media, де будуть наші файли
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Users
+AUTH_USER_MODEL = 'users.User'
