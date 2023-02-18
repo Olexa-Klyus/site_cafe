@@ -1,0 +1,52 @@
+[
+{
+    "model": "main_page.testimonials",
+    "pk": 1,
+    "fields": {
+        "author": "Віталій Ярошенко",
+        "author_desc": "Ceo & Founder",
+        "quote": "Дуже крутий заклад! Високий рівень сервісу та професіоналізм у всьому. Рекомендую!",
+        "photo": "testimonials/testimonials-1.jpg"
+    }
+},
+{
+    "model": "main_page.testimonials",
+    "pk": 2,
+    "fields": {
+        "author": "Квітка Аяка",
+        "author_desc": "Дизайнерка",
+        "quote": "Дуже атмосферний заклад, видно професійний підхід та рівень у всіх деталях. Рекомендую!",
+        "photo": "testimonials/testimonials-2.jpg"
+    }
+},
+{
+    "model": "main_page.testimonials",
+    "pk": 3,
+    "fields": {
+        "author": "Олена Карліс",
+        "author_desc": "Власниця крамниці",
+        "quote": "Була тут на дні народження друга. Дуже сподобалось! Обов'язково завітаю ще.",
+        "photo": "testimonials/testimonials-3.jpg"
+    }
+},
+{
+    "model": "main_page.testimonials",
+    "pk": 4,
+    "fields": {
+        "author": "Матвій Альт",
+        "author_desc": "Фрилансер",
+        "quote": "Дуже крутий персонал та обслуговування, невимушена й спокійна атмосфера. Часто заходжу сюди, всім рекомендую цей ресторан!",
+        "photo": "testimonials/testimonials-4.jpg"
+    }
+},
+{
+    "model": "main_page.testimonials",
+    "pk": 5,
+    "fields": {
+        "author": "Віталій Редько",
+        "author_desc": "Бізнесмен",
+        "quote": "Дуже зручне розташування закладу, високий рівень обслуговування. Підходить як для ділового ланчу, так і для зустрічі з друзями. Рекомендую!",
+        "photo": "testimonials/testimonials-5.jpg"
+    }
+}
+]

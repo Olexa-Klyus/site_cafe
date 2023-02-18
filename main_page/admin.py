@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us
-from .models import Reservation
+from .models import Category, Dish, Events, Gallery, Chefs, About, Whu_Us, Contacts, Testimonials, Reservation
 
 
 # варіант адмінки на швидкоруч
@@ -82,3 +81,13 @@ class ReserveAdmin(admin.ModelAdmin):
     model = Reservation
     list_display = ['name', 'phone', 'is_processed']
     list_editable = ['is_processed']
+
+
+@admin.register(Contacts)
+class ContactsAdmin(admin.ModelAdmin):
+    model = Contacts
+
+
+@admin.register(Testimonials)
+class TestimonialsAdmin(admin.ModelAdmin):
+    model = Testimonials

@@ -124,3 +124,28 @@ class Whu_Us(models.Model):
     number = models.CharField(max_length=3)
     title = models.CharField(max_length=50)
     desc = models.CharField(max_length=250)
+
+
+class Contacts(models.Model):
+    phone = models.TextField(max_length=20, blank=False)
+    phone_add = models.TextField(max_length=20, blank=True)
+    address = models.TextField(max_length=200, blank=False)
+    email = models.TextField(max_length=50, blank=False)
+    email_add = models.TextField(max_length=50, blank=False)
+    socials = models.TextField(max_length=100, blank=True)
+    add_information = models.TextField(max_length=500, blank=True)
+    sub_title = models.TextField(max_length=500, blank=True)
+    open_days_1 = models.TextField(max_length=150, blank=False)
+    open_hours_1 = models.TextField(max_length=50, blank=False)
+    open_days_2 = models.TextField(max_length=150, blank=True)
+    open_hours_2 = models.TextField(max_length=50, blank=True)
+
+
+class Testimonials(models.Model):
+    author = models.TextField(max_length=70, blank=False)
+    author_desc = models.TextField(max_length=500, blank=False)
+    quote = models.TextField(max_length=2000, blank=False)
+    photo = models.ImageField(upload_to='testimonials', blank=False)
+
+    def __str__(self):
+        return f'{self.author}'

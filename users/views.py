@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse
 
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 
 
 def login(request):
@@ -36,7 +36,11 @@ def registration(request):
 
 
 def profile(request):
-    return render(request, 'users/profile.html')
+    form = UserRegistrationForm
+
+    context = {'form': form, 'title': 'Профіль'}
+
+    return render(request, 'users/profile.html', context)
 
 
 def logout(request):

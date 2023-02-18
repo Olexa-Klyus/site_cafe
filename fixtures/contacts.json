@@ -1,0 +1,20 @@
+[
+ {
+    "model": "main_page.contacts",
+    "pk": 1,
+    "fields": {
+      "phone": "098-555-55-55",
+      "phone_add": "067-111-55-55",
+      "address": "Kyiv, Volodymyra Ivasiuka avenue, 1",
+      "email": "rest215@gmail.com",
+      "email_add": "addrest215@gmail.com",
+      "socials": "",
+      "add_information": "",
+      "sub_title": "restaurant Delicious",
+      "open_days_1": "Пн-пт",
+      "open_hours_1": "10:00-20:00",
+      "open_days_2": "Сб-нд",
+      "open_hours_2": "11:00-21:00"
+    }
+  }
+]
