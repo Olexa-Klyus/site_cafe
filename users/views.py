@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.urls import reverse
 
 from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
@@ -27,6 +27,7 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Реєстрація успішна!')
             return redirect(reverse('users:login'))
     else:
         form = UserRegistrationForm
@@ -38,11 +39,10 @@ def registration(request):
 def profile(request):
     if request.method == "POST":
         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
-        if form.is_valid():
+        if form.has_changed() and form.is_valid():
             form.save()
+            messages.success(request, 'Зміни успішно внесені!')
             return redirect(reverse('users:profile'))
-        else:
-            print(form.errors)
     else:
         form = UserProfileForm(instance=request.user)
 
