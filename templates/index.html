@@ -70,28 +70,25 @@
                 <li><a class="nav-link scrollto" href="{% url 'main_page:main_url' %}#chefs">Chefs</a></li>
                 <li><a class="nav-link scrollto" href="{% url 'main_page:main_url' %}#gallery">Gallery</a></li>
 
-                {% if 'manager' in user.groups.all.0.name %}
-
-                    <li class="dropdown"><a href="{% url 'main_page:main_url' %}#"><span>Менеджер</span> <i
-                            class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{% url 'main_page:list_reservation' %}">Замовлення</a></li>
-                        </ul>
-                    </li>
-
-                {% endif %}
-
 
                 <li class="dropdown"><a
-                        href="{% url 'main_page:main_url' %}#"><span>Користувач {{ user.username }}</span> <i
+                        href="{% url 'main_page:main_url' %}#"><span>Користувач : {{ user.username }}</span> <i
                         class="bi bi-chevron-down"></i></a>
                     <ul>
-                        {% if not user.username %}
+                        {% if not user.is_authenticated %}
                             <li><a href="{% url 'users:login' %}">Вхід</a></li>
                             <li><a href="{% url 'users:registration' %}">Реєстрація</a></li>
                         {% else %}
-                            <li><a href="{% url 'users:logout' %}">Вийти</a></li>
+                            {% if 'manager' in user.groups.all.0.name %}
+                                <li><a href="{% url 'main_page:list_reservation' %}">Замовлення</a></li>
+                            {% endif %}
+
+                            {% if user.is_superuser or user.is_staff %}
+                                <li><a href="{% url 'admin:index' %}">Адмін-панель</a></li>
+                            {% endif %}
+
                             <li><a href="{% url 'users:profile' %}">Профіль</a></li>
+                            <li><a href="{% url 'users:logout' %}">Вийти</a></li>
                         {% endif %}
                     </ul>
                 </li>

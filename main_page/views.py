@@ -36,6 +36,8 @@ def main(request):
     # })
     return render(request, 'main_page.html',
                   context={
+                      'form_reserve': form_reserve,
+
                       'categories': categories,
                       'dishes': dishes,
                       'special_dishes': special_dishes,
@@ -44,7 +46,6 @@ def main(request):
                       'chefs': chefs,
                       'about': about,
                       'whu_us': whu_us,
-                      'form_reserve': form_reserve,
                       'contacts': contacts,
                       'testimonials': testimonials,
                   })
